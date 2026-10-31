@@ -1,6 +1,5 @@
-Preferred_Category,Customer_Count,Customer_Share_Pct,Mean_Total_Spend,Median_Total_Spend,Mean_AOV,Mean_Purchases,Repeat_Purchase_Rate_Pct
-Beauty & Health,692,13.84,752.22,578.68,87.17,8.56,40.9
-Fashion,1406,28.12,749.77,577.57,87.43,8.6,39.76
-Home & Living,884,17.68,745.29,587.26,89,8.36,37.1
-Books & Media,492,9.84,731.14,576.74,88.54,8.24,43.29
-Electronics,1526,30.52,726.31,551.14,86.93,8.39,43.18
+Category,Customer_Count,Mean_Spend_USD,Median_Spend_USD,Total_Revenue_USD,Share_of_Spend_Pct
+Clothing,1737,1583.52,1332,2750570,44.7
+Accessories,1240,1589.02,1349,1970387,32.02
+Footwear,599,1588.04,1330,951236,15.46
+Outerwear,324,1483.36,1200.5,480608,7.81

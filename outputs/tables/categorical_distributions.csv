@@ -1,16 +1,148 @@
-Variable,Category,Count,Percentage
-Gender,Female,2438,48.76
-Gender,Male,2356,47.12
-Gender,Other,206,4.12
-City_Tier,Tier 1,2254,45.08
-City_Tier,Tier 2,1760,35.2
-City_Tier,Tier 3,986,19.72
-Preferred_Category,Beauty & Health,692,13.84
-Preferred_Category,Books & Media,492,9.84
-Preferred_Category,Electronics,1526,30.52
-Preferred_Category,Fashion,1406,28.12
-Preferred_Category,Home & Living,884,17.68
-Loyalty_Program_Member,No,3139,62.78
-Loyalty_Program_Member,Yes,1861,37.22
-Repeat_Purchase,No,2958,59.16
-Repeat_Purchase,Yes,2042,40.84
+Variable,Category_Level,Frequency,Proportion_Pct
+Gender,Female,1248,32
+Gender,Male,2652,68
+Item_Purchased,Backpack,143,3.67
+Item_Purchased,Belt,161,4.13
+Item_Purchased,Blouse,171,4.38
+Item_Purchased,Boots,144,3.69
+Item_Purchased,Coat,161,4.13
+Item_Purchased,Dress,166,4.26
+Item_Purchased,Gloves,140,3.59
+Item_Purchased,Handbag,153,3.92
+Item_Purchased,Hat,154,3.95
+Item_Purchased,Hoodie,151,3.87
+Item_Purchased,Jacket,163,4.18
+Item_Purchased,Jeans,124,3.18
+Item_Purchased,Jewelry,171,4.38
+Item_Purchased,Pants,171,4.38
+Item_Purchased,Sandals,160,4.1
+Item_Purchased,Scarf,157,4.03
+Item_Purchased,Shirt,169,4.33
+Item_Purchased,Shoes,150,3.85
+Item_Purchased,Shorts,157,4.03
+Item_Purchased,Skirt,158,4.05
+Item_Purchased,Sneakers,145,3.72
+Item_Purchased,Socks,159,4.08
+Item_Purchased,Sunglasses,161,4.13
+Item_Purchased,Sweater,164,4.21
+Item_Purchased,T-shirt,147,3.77
+Category,Accessories,1240,31.79
+Category,Clothing,1737,44.54
+Category,Footwear,599,15.36
+Category,Outerwear,324,8.31
+Location,Alabama,89,2.28
+Location,Alaska,72,1.85
+Location,Arizona,65,1.67
+Location,Arkansas,79,2.03
+Location,California,95,2.44
+Location,Colorado,75,1.92
+Location,Connecticut,78,2
+Location,Delaware,86,2.21
+Location,Florida,68,1.74
+Location,Georgia,79,2.03
+Location,Hawaii,65,1.67
+Location,Idaho,93,2.38
+Location,Illinois,92,2.36
+Location,Indiana,79,2.03
+Location,Iowa,69,1.77
+Location,Kansas,63,1.62
+Location,Kentucky,79,2.03
+Location,Louisiana,84,2.15
+Location,Maine,77,1.97
+Location,Maryland,86,2.21
+Location,Massachusetts,72,1.85
+Location,Michigan,73,1.87
+Location,Minnesota,88,2.26
+Location,Mississippi,80,2.05
+Location,Missouri,81,2.08
+Location,Montana,96,2.46
+Location,Nebraska,87,2.23
+Location,Nevada,87,2.23
+Location,New Hampshire,71,1.82
+Location,New Jersey,67,1.72
+Location,New Mexico,81,2.08
+Location,New York,87,2.23
+Location,North Carolina,78,2
+Location,North Dakota,83,2.13
+Location,Ohio,77,1.97
+Location,Oklahoma,75,1.92
+Location,Oregon,74,1.9
+Location,Pennsylvania,74,1.9
+Location,Rhode Island,63,1.62
+Location,South Carolina,76,1.95
+Location,South Dakota,70,1.79
+Location,Tennessee,77,1.97
+Location,Texas,77,1.97
+Location,Utah,71,1.82
+Location,Vermont,85,2.18
+Location,Virginia,77,1.97
+Location,Washington,73,1.87
+Location,West Virginia,81,2.08
+Location,Wisconsin,75,1.92
+Location,Wyoming,71,1.82
+Size,L,1053,27
+Size,M,1755,45
+Size,S,663,17
+Size,XL,429,11
+Color,Beige,147,3.77
+Color,Black,167,4.28
+Color,Blue,152,3.9
+Color,Brown,141,3.62
+Color,Charcoal,153,3.92
+Color,Cyan,166,4.26
+Color,Gold,138,3.54
+Color,Gray,159,4.08
+Color,Green,169,4.33
+Color,Indigo,147,3.77
+Color,Lavender,147,3.77
+Color,Magenta,152,3.9
+Color,Maroon,158,4.05
+Color,Olive,177,4.54
+Color,Orange,154,3.95
+Color,Peach,149,3.82
+Color,Pink,153,3.92
+Color,Purple,151,3.87
+Color,Red,148,3.79
+Color,Silver,173,4.44
+Color,Teal,172,4.41
+Color,Turquoise,145,3.72
+Color,Violet,166,4.26
+Color,White,142,3.64
+Color,Yellow,174,4.46
+Season,Fall,975,25
+Season,Spring,999,25.62
+Season,Summer,955,24.49
+Season,Winter,971,24.9
+Subscription_Status,No,2847,73
+Subscription_Status,Yes,1053,27
+Shipping_Type,2-Day Shipping,627,16.08
+Shipping_Type,Express,646,16.56
+Shipping_Type,Free Shipping,675,17.31
+Shipping_Type,Next Day Air,648,16.62
+Shipping_Type,Standard,654,16.77
+Shipping_Type,Store Pickup,650,16.67
+Discount_Applied,No,2223,57
+Discount_Applied,Yes,1677,43
+Promo_Code_Used,No,2223,57
+Promo_Code_Used,Yes,1677,43
+Payment_Method,Bank Transfer,612,15.69
+Payment_Method,Cash,670,17.18
+Payment_Method,Credit Card,671,17.21
+Payment_Method,Debit Card,636,16.31
+Payment_Method,PayPal,677,17.36
+Payment_Method,Venmo,634,16.26
+Frequency_of_Purchases,Annually,572,14.67
+Frequency_of_Purchases,Bi-Weekly,547,14.03
+Frequency_of_Purchases,Every 3 Months,584,14.97
+Frequency_of_Purchases,Fortnightly,542,13.9
+Frequency_of_Purchases,Monthly,553,14.18
+Frequency_of_Purchases,Quarterly,563,14.44
+Frequency_of_Purchases,Weekly,539,13.82
+Loyalty_Program_Member,No,2847,73
+Loyalty_Program_Member,Yes,1053,27
+Repeat_Purchase,No,708,18.15
+Repeat_Purchase,Yes,3192,81.85
+Preferred_Category,Accessories,1240,31.79
+Preferred_Category,Clothing,1737,44.54
+Preferred_Category,Footwear,599,15.36
+Preferred_Category,Outerwear,324,8.31

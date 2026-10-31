@@ -1,12 +1,12 @@
 Metric,Value
-Initial Row Count,5015
-Initial Column Count,17
-Duplicate Rows Identified & Removed,15
-Post-Deduplication Rows,5000
-Columns with Missing Values,3
-Total Missing Values Imputed,300
-Engineered Features Added,"Spend_Per_Visit, Engagement_Index"
-Clustering Features Scaled,"Total_Spend_USD, Avg_Order_Value_USD, Total_Purchases, Recency_Days, App_Session_Minutes, Discount_Usage_Ratio"
-Training Set Size,3750
-Testing Set Size,1250
-Final Cleaned Dataset Rows,5000
+Initial Row Count,3900
+Initial Column Count,18
+Duplicate Rows Removed,0
+Post-Deduplication Rows,3900
+Columns with Missing Values,0
+Total Missing Values Imputed,0
+Clustering Features Scaled,"Total_Spend_USD, Avg_Order_Value_USD, Total_Purchases, Recency_Days, Customer_Satisfaction_Score, Age"
+Target Variable Identified,Subscription_Status
+Training Set Size,2925
+Testing Set Size,975
+Final Cleaned Dataset Rows,3900

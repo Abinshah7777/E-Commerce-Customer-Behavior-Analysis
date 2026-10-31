@@ -1,0 +1,5 @@
+Cluster_ID,Cluster_Name,Customer_Count,Percentage,Mean_Age,Mean_Purchase_Amount_USD,Mean_Customer_Satisfaction_Score,Mean_Total_Purchases,Repeat_Rate_Pct
+2,Low-Frequency At-Risk,1047,26.85,32.43,58.76,3.72,11.26,55.01
+1,Active Mid-Tier Regulars,972,24.92,56.66,81.51,3.95,26.07,85.6
+4,Discount-Driven Shoppers,958,24.56,56.49,37.81,3.51,27.1,89.87
+3,High-Value Loyalists,923,23.67,31.13,60.79,3.82,38.76,100

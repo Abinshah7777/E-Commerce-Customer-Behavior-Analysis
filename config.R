@@ -5,10 +5,9 @@
 # Subject: Big Data Analytics – R Programming Mini Project
 # Academic Year: 2026–2027
 # Institution: Mentor Engineering College
-# Authors: Muhammed Shijil MK, Navin Krishna IN, Abinshah PM, Liju Shirvan
 # ==============================================================================
 
-# Global Project Metadata
+# Global Project Configuration
 CONFIG <- list(
   project_info = list(
     title = "E-Commerce Customer Behavior Analysis",
@@ -28,7 +27,17 @@ CONFIG <- list(
       "Hishal MT"
     ),
     date = "October 2026",
-    version = "1.0.0"
+    version = "2.0.0"
+  ),
+
+  # Default Genuine Kaggle Dataset Metadata
+  kaggle_dataset = list(
+    name = "Customer Shopping Trends Dataset",
+    author = "Sourav Banerjee",
+    source_url = "https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset",
+    raw_file = "shopping_trends.csv",
+    n_observations = 3900,
+    n_features = 18
   ),
 
   # Reproducibility Seed
@@ -37,6 +46,8 @@ CONFIG <- list(
   # File Paths
   paths = list(
     data_raw = file.path("data", "raw", "customer_data.csv"),
+    data_kaggle_backup = file.path("data", "raw", "shopping_trends.csv"),
+    data_sample_excel = file.path("data", "raw", "customer_data_sample.xlsx"),
     data_processed = file.path("data", "processed", "cleaned_customer_data.csv"),
     data_readme = file.path("data", "README.md"),
     plots_dir = file.path("outputs", "plots"),
@@ -50,13 +61,6 @@ CONFIG <- list(
     predictions = file.path("outputs", "tables", "test_set_predictions.csv")
   ),
 
-  # Dataset Parameters (Synthetic Generation)
-  dataset = list(
-    n_customers = 5000,
-    missing_rate = 0.02, # 2% missing in optional fields to test imputation
-    n_duplicates = 15    # duplicate rows to test duplicate detection
-  ),
-
   # Clustering Configuration (K-Means)
   clustering = list(
     features = c(
@@ -64,8 +68,8 @@ CONFIG <- list(
       "Avg_Order_Value_USD",
       "Total_Purchases",
       "Recency_Days",
-      "App_Session_Minutes",
-      "Discount_Usage_Ratio"
+      "Customer_Satisfaction_Score",
+      "Age"
     ),
     k_range = 2:8,
     k_optimal = 4,
@@ -76,27 +80,33 @@ CONFIG <- list(
       "Cluster_2" = "Active Mid-Tier Regulars",
       "Cluster_3" = "Discount-Driven Shoppers",
       "Cluster_4" = "Low-Frequency At-Risk"
+    ),
+    palette = c(
+      "High-Value Loyalists"     = "#1b9e77",
+      "Active Mid-Tier Regulars"  = "#2b5c8f",
+      "Discount-Driven Shoppers"  = "#e6ab02",
+      "Low-Frequency At-Risk"    = "#d95f02",
+      "Occasional Browsers"      = "#8e44ad",
+      "New Cohort"               = "#16a085"
     )
   ),
 
   # Predictive Modeling Configuration
   modeling = list(
-    target_var = "Repeat_Purchase",
+    target_var = "Subscription_Status", # Authentic binary target from Kaggle dataset (Yes/No)
+    fallback_target_var = "Repeat_Purchase",
     predictor_vars = c(
       "Age",
-      "Annual_Income_USD",
-      "Customer_Tenure_Months",
+      "Gender",
+      "Category",
       "Total_Spend_USD",
       "Avg_Order_Value_USD",
       "Total_Purchases",
       "Recency_Days",
-      "App_Session_Minutes",
-      "Website_Visits_Per_Month",
-      "Discount_Usage_Ratio",
-      "Loyalty_Program_Member",
-      "Gender",
-      "City_Tier",
-      "Preferred_Category"
+      "Customer_Satisfaction_Score",
+      "Discount_Applied",
+      "Payment_Method",
+      "Shipping_Type"
     ),
     train_ratio = 0.75,
     prob_threshold = 0.50,
@@ -109,3 +119,20 @@ CONFIG <- list(
 get_config <- function() {
   return(CONFIG)
 }
+
+# Standard Cluster Persona Color Palette (accessible globally across scripts)
+PALETTE_CLUSTERS <- c(
+  "High-Value Loyalists"     = "#1b9e77",
+  "Active Mid-Tier Regulars"  = "#2b5c8f",
+  "Discount-Driven Shoppers"  = "#e6ab02",
+  "Low-Frequency At-Risk"    = "#d95f02",
+  "Occasional Browsers"      = "#8e44ad",
+  "New Cohort"               = "#16a085",
+  "Cluster 1"                = "#1b9e77",
+  "Cluster 2"                = "#2b5c8f",
+  "Cluster 3"                = "#e6ab02",
+  "Cluster 4"                = "#d95f02",
+  "Cluster 5"                = "#8e44ad",
+  "Cluster 6"                = "#16a085"
+)
+

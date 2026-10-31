@@ -1,0 +1,12 @@
+Metric,Value
+Initial Row Count,3900
+Initial Column Count,18
+Duplicate Rows Removed,0
+Post-Deduplication Rows,3900
+Columns with Missing Values,0
+Total Missing Values Imputed,0
+Clustering Features Scaled,"Total_Spend_USD, Avg_Order_Value_USD, Total_Purchases, Recency_Days, Customer_Satisfaction_Score, Age"
+Target Variable Identified,Subscription_Status
+Training Set Size,2925
+Testing Set Size,975
+Final Cleaned Dataset Rows,3900

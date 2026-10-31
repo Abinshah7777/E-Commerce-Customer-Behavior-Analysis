@@ -2,8 +2,8 @@
 # SETUP MODULE: setup.R
 # Project: E-Commerce Customer Behavior Analysis
 # Subtitle: Customer Segmentation and Purchase Prediction
-# Subject: Big Data Analytics – R Programming Mini Project
-# Academic Year: 2026–2027
+# Subject: Big Data Analytics â€“ R Programming Mini Project
+# Academic Year: 2026â€“2027
 # Institution: Mentor Engineering College
 # ==============================================================================
 
@@ -20,11 +20,13 @@ required_packages <- c(
   "dplyr",
   "tidyr",
   "readr",
+  "readxl",
   "ggplot2",
   "scales",
   "cluster",
   "randomForest",
-  "shiny"
+  "shiny",
+  "bslib"
 )
 
 cat("[INFO] Checking required R packages...\n")
@@ -45,9 +47,9 @@ for (pkg in required_packages) {
   loaded <- suppressPackageStartupMessages(require(pkg, character.only = TRUE, quietly = TRUE))
   if (loaded) {
     ver <- as.character(packageVersion(pkg))
-    cat(sprintf("  ✓ %-15s [v%s] Loaded\n", pkg, ver))
+    cat(sprintf("  âœ“ %-15s [v%s] Loaded\n", pkg, ver))
   } else {
-    cat(sprintf("  ✗ %-15s Failed to load\n", pkg))
+    cat(sprintf("  âœ— %-15s Failed to load\n", pkg))
     all_loaded <- FALSE
   }
 }
@@ -76,7 +78,7 @@ for (d in dirs) {
     dir.create(d, recursive = TRUE, showWarnings = FALSE)
     cat(sprintf("  + Created directory: %s\n", d))
   } else {
-    cat(sprintf("  ✓ Directory exists:  %s\n", d))
+    cat(sprintf("  âœ“ Directory exists:  %s\n", d))
   }
 }
 

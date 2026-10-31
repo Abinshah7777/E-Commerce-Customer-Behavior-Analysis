@@ -5,7 +5,6 @@
 # Subject: Big Data Analytics – R Programming Mini Project
 # Academic Year: 2026–2027
 # Institution: Mentor Engineering College
-# Authors: Muhammed Shijil MK, Navin Krishna IN, Abinshah PM, Liju Shirvan, Hishal MT
 # ==============================================================================
 
 # Start Timer
@@ -28,7 +27,7 @@ source("config.R")
 config <- get_config()
 
 # Load Required Libraries with informative warnings if missing
-required_libs <- c("dplyr", "tidyr", "readr", "ggplot2", "scales", "cluster", "randomForest")
+required_libs <- c("dplyr", "tidyr", "readr", "readxl", "ggplot2", "scales", "cluster", "randomForest")
 for (lib in required_libs) {
   if (!suppressPackageStartupMessages(require(lib, character.only = TRUE, quietly = TRUE))) {
     stop(sprintf("[CRITICAL ERROR] Package '%s' is not installed. Please run 'Rscript setup.R'.", lib))
@@ -49,25 +48,22 @@ source(file.path("R", "generate_report.R"))
 cat("  ✓ All 9 analysis modules sourced successfully.\n")
 
 # ------------------------------------------------------------------------------
-# STAGE 2: DATA LOADING & ACQUISITION
+# STAGE 2: DATA LOADING & ACQUISITION (GENUINE KAGGLE DATASET)
 # ------------------------------------------------------------------------------
-cat("\n[STAGE 2/11] Data Ingestion & Synthesis Verification...\n")
+cat("\n[STAGE 2/11] Ingesting Genuine Kaggle E-Commerce Dataset...\n")
 raw_data_path <- config$paths$data_raw
 
 if (!file.exists(raw_data_path)) {
-  cat(sprintf("[INFO] Raw data file '%s' not found. Generating reproducible dataset...\n", raw_data_path))
-  raw_df <- generate_synthetic_dataset(
-    n = config$dataset$n_customers,
-    seed = config$seed,
-    missing_rate = config$dataset$missing_rate,
-    n_duplicates = config$dataset$n_duplicates,
-    output_path = raw_data_path
-  )
-} else {
-  cat(sprintf("[INFO] Raw dataset found at '%s'. Loading...\n", raw_data_path))
-  raw_df <- load_raw_data(raw_data_path)
+  # Check alternate raw backup
+  if (file.exists(config$paths$data_kaggle_backup)) {
+    raw_data_path <- config$paths$data_kaggle_backup
+  } else {
+    stop(sprintf("[ERROR] Dataset file not found at '%s'.", raw_data_path))
+  }
 }
-cat(sprintf("  ✓ Ingested %d records across %d columns.\n", nrow(raw_df), ncol(raw_df)))
+
+raw_df <- load_raw_data(raw_data_path)
+cat(sprintf("  ✓ Ingested %d records across %d columns from '%s'.\n", nrow(raw_df), ncol(raw_df), basename(raw_data_path)))
 
 # ------------------------------------------------------------------------------
 # STAGE 3: DATA PREPROCESSING & CLEANSING
@@ -106,16 +102,20 @@ cat(sprintf("  ✓ Fitted optimal K-Means model with k = %d personas.\n", config
 # STAGE 7: PURCHASE PREDICTION MODELING (ML)
 # ------------------------------------------------------------------------------
 cat("\n[STAGE 7/11] Supervised Machine Learning & Purchase Prediction...\n")
-pred_results <- train_and_evaluate_models(train_data, test_data, config)
-cat(sprintf("  ✓ Logistic Regression (Baseline AUC: %.3f) | Random Forest (Advanced AUC: %.3f)\n",
-            pred_results$glm_metrics$auc, pred_results$rf_metrics$auc))
+pred_results <- train_and_evaluate_models(train_data, test_data, config, target_col = prep_results$target_var)
+if (isTRUE(pred_results$model_available)) {
+  cat(sprintf("  ✓ Logistic Regression (Baseline AUC: %.3f) | Random Forest (Advanced AUC: %.3f)\n",
+              pred_results$glm_metrics$auc, pred_results$rf_metrics$auc))
+} else {
+  cat(sprintf("  ⚠ %s\n", pred_results$message))
+}
 
 # ------------------------------------------------------------------------------
 # STAGE 8: CENTRALIZED VISUALIZATION EXPORT
 # ------------------------------------------------------------------------------
 cat("\n[STAGE 8/11] Exporting High-Resolution Publication Visualizations...\n")
 generate_all_visualizations(cleaned_df, raw_df, seg_results, pred_results, config)
-cat("  ✓ 15 publication figures exported to outputs/plots/.\n")
+cat("  ✓ Publication figures exported to outputs/plots/.\n")
 
 # ------------------------------------------------------------------------------
 # STAGE 9: BUSINESS INSIGHTS & STRATEGIC RECOMMENDATIONS
@@ -139,15 +139,19 @@ elapsed_sec <- round(as.numeric(difftime(end_time, start_time, units = "secs")),
 
 cat("\n")
 cat("================================================================================\n")
-cat("   PIPELINE EXECUTION COMPLETED SUCCESSFULLY IN " %+% sprintf("%.2f seconds\n", elapsed_sec))
+cat(sprintf("   PIPELINE EXECUTION COMPLETED SUCCESSFULLY IN %.2f seconds\n", elapsed_sec))
 cat("================================================================================\n")
-cat(sprintf("  • Processed Customers:     %d\n", nrow(cleaned_df)))
-cat(sprintf("  • Optimal Clusters:        k = %d (%s)\n",
+cat(sprintf("  • Analyzed Dataset:         %s (Kaggle)\n", config$kaggle_dataset$name))
+cat(sprintf("  • Processed Customers:     %d observations\n", nrow(cleaned_df)))
+cat(sprintf("  • Discovered Personas:     k = %d clusters (%s)\n",
             config$clustering$k_optimal, paste(unique(seg_results$cluster_summary$Cluster_Name), collapse = ", ")))
-cat(sprintf("  • Best Classification AUC: %.4f (Random Forest)\n", pred_results$rf_metrics$auc))
-cat(sprintf("  • Generated Plots:         15 high-resolution figures in %s\n", config$paths$plots_dir))
-cat(sprintf("  • Generated Data Tables:   8 CSV summaries in %s\n", config$paths$tables_dir))
-cat(sprintf("  • Persisted Models:        K-Means, Logistic Regression, Random Forest in %s\n", config$paths$models_dir))
+if (isTRUE(pred_results$model_available)) {
+  cat(sprintf("  • Classification Target:   %s (Random Forest AUC: %.3f)\n",
+              pred_results$target_col, pred_results$rf_metrics$auc))
+}
+cat(sprintf("  • Generated Plots:         High-resolution figures in %s\n", config$paths$plots_dir))
+cat(sprintf("  • Generated Data Tables:   Summary tables in %s\n", config$paths$tables_dir))
+cat(sprintf("  • Persisted Models:        Fitted model binaries in %s\n", config$paths$models_dir))
 cat(sprintf("  • Comprehensive Report:    %s\n", report_file))
 cat("================================================================================\n")
 cat("   Mentor Engineering College | Big Data Analytics Mini Project (2026–2027)    \n")
