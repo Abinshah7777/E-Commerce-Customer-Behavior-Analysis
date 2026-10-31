@@ -10,6 +10,8 @@
 *~
 scratch/
 temp/
+__pycache__/
+*.py[cod]
 
 # OS Specific
 .DS_Store
