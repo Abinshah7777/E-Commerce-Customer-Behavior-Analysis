@@ -231,3 +231,5 @@ Then navigate to `http://127.0.0.1:3838` in your web browser.
 
 ## 9. License & Attribution
 Developed for the **B.Tech Mini Project (Academic Year 2026–2027)** at **Mentor Engineering College**, Department of Artificial Intelligence and Data Science & Department of Computer Science and Engineering.
+#   E - C o m m e r c e - C u s t o m e r - B e h a v i o r - A n a l y s i s  
+ 
