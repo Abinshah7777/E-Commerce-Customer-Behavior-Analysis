@@ -1,0 +1,16 @@
+Variable,Category,Count,Percentage
+Gender,Female,2438,48.76
+Gender,Male,2356,47.12
+Gender,Other,206,4.12
+City_Tier,Tier 1,2254,45.08
+City_Tier,Tier 2,1760,35.2
+City_Tier,Tier 3,986,19.72
+Preferred_Category,Beauty & Health,692,13.84
+Preferred_Category,Books & Media,492,9.84
+Preferred_Category,Electronics,1526,30.52
+Preferred_Category,Fashion,1406,28.12
+Preferred_Category,Home & Living,884,17.68
+Loyalty_Program_Member,No,3139,62.78
+Loyalty_Program_Member,Yes,1861,37.22
+Repeat_Purchase,No,2958,59.16
+Repeat_Purchase,Yes,2042,40.84

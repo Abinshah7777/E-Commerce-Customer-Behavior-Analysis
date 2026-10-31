@@ -1,0 +1,21 @@
+# R History & Environment
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Temporary and Scratch Files
+*.tmp
+*.temp
+*~
+scratch/
+temp/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Zip Archives (except deliverables)
+*.tar.gz
+*.zip

@@ -1,0 +1,5 @@
+Cluster_ID,Cluster_Name,Customer_Count,Percentage,Mean_Spend_USD,Median_Spend_USD,Mean_Purchases,Mean_AOV_USD,Mean_Recency_Days,Mean_App_Mins,Mean_Web_Visits,Mean_Discount_Ratio,Loyalty_Member_Pct,Repeat_Purchase_Rate_Pct
+3,High-Value Loyalists,995,19.9,1685.72,1475.1,12.65,145.85,39.27,40.58,10.57,0.27,53.57,59.2
+1,Low-Frequency At-Risk,615,12.3,599.05,537.96,7.74,80.58,138.91,38.06,9.35,0.258,33.82,15.28
+2,Discount-Driven Shoppers,1281,25.62,521.6,492.7,7.44,75.38,33.6,38.63,9.43,0.474,34.11,37.16
+4,Active Mid-Tier Regulars,2109,42.18,468.34,437.71,7.3,69.65,31.62,39.08,9.34,0.188,32.39,41.87
